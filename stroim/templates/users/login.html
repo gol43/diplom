@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static "img/logo.png" %}" type="image">
+    <title>Вход</title>
+    <style>
+      body {
+        background-color: rgb(12, 178, 244, 0.7);
+        height: 100vh;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      div.container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Стили для контейнера формы */
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border: 2px solid rgb(12, 178, 244);
+        padding: 30px;
+      }
+
+      /* Стили для поля ввода */
+      label input {
+        display: block;
+        margin: 0 auto; /* Центрирование поля ввода */
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px solid white; /* Changed to white */
+        color: white;
+        font-size: 20px;
+        letter-spacing: 1px;
+        outline: 0;
+        padding: 5px 20px;
+        text-align: center;
+        transition: all 0.3s;
+        width: 200px;
+      }
+
+      /* Стили для кнопки */
+      button {
+        margin-top: 20px; /* Расстояние между последним полем ввода и кнопкой */
+        background: transparent;
+        color: #F0F0F0;
+        border: 2px solid #F0F0F0;
+        font-size: 15px;
+        letter-spacing: 2px;
+        padding: 20px 75px;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-block;
+        margin: 15px 30px;
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+      }
+
+      button:hover, button:focus {
+        background-color: white;
+        color: #333333;
+      }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <section>
+      <form method="POST" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        {% for field in form %}
+          <label class="label">
+            {{ field.errors }}
+            <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" id="{{ field.id_for_label }}" {% if field.field.required %}required{% endif %}>
+            <div class="label-text">{{ field.label }}</div>
+          </label>
+        {% endfor %}
+        <button type="submit">Войти</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>

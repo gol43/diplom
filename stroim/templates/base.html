@@ -1,0 +1,35 @@
+{% load static %}  
+<!DOCTYPE html> 
+<html lang="ru">  
+  <head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static "img/logo.png"%}" type="image">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+  </head>
+    <body>
+      <header class='header'>
+        {% include 'includes/header.html'%}
+      </header>
+        <main>
+        {% block content %}
+        {% endblock %}
+        </main>
+    </body>
+    <footer class="footer">
+      <div class='footer-info'>Связь:</div>
+      <ul>
+        <li>Номер телефона: +7-911-123-12-80</li>
+        <li>Адрес: ул. Согласия, 2</li>
+        <li>Автор: Человек</li>
+      </ul>
+      <div class="footer-cop">© 2024 Copyright <span style="color:rgb(12, 20, 240)">Комфорт</span>Строй</div>
+    </footer>
+    
+    
+  
+  </html>

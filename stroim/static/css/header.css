@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  header {
+    background-color: rgb(12, 178, 244);
+    height: 100px;
+    width: 100%;
+    box-shadow: -10px 5px 6px #0160a3;
+    display: flex;
+    align-items: center;
+  }
+  
+
+  
+.img-logo {
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    transition: all 1s;
+  }
+
+.img-logo:hover {
+  transform: scale(1.2);
+}
+
+  .logo {
+    display: flex;
+    color: white;
+    margin: auto;
+    margin-right: 25px;
+    margin-left: 25px;
+    transition: .5s;
+    font-family: system-ui;
+    font-size: 15px;
+  }
+  .logo:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Каталог */
+  .catalog {
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+  }
+  header nav ul li {
+    display: block;
+    width: 100px;
+    color: white;
+  }
+  
+  header nav ul li a{
+    font-size: 20px;
+    padding: 15px;
+    color: white;
+    display: block;
+    transition: all 1s;
+  }
+
+  
+  header nav ul li a:hover {
+    background-color: black;
+    color:white;
+  }
+  
+  header nav ul li ul {
+    position: absolute;
+    background-color: gray;
+    display: none;
+    z-index: 3;
+  }
+  
+  nav ul li ul li {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.1);
+  }
+  
+  nav ul li:hover > ul {
+    display: initial;
+  }
+  /* Каталог */
+  
+  
+  /* Поиск */
+  .poisk {
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    margin-left: 0;
+  }
+form {
+    position: relative;
+    margin: 50px;
+    display: flex;
+    transition: 1s;
+    width: 250px;
+    height: 40px;
+    background: rgb(255, 255, 255);
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 2px solid rgb(0, 0, 0);
+  }
+  
+  input {
+    width: 100%;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+  }
+  
+  .fa {
+    box-sizing: border-box;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+  }
+  
+  form:hover {
+    cursor: pointer;
+  }
+  
+  form:hover input {
+    display: block;
+  }
+ 
+  
+  .auth {
+  color: white;
+  font-size: 25px;
+  margin-right: 20px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 5px;
+  }
+
+  .auth a {
+  color: white;
+  text-decoration: none;
+  }
+
+  .auth:hover {
+    transform: scale(1.2)
+  }
+
+  .auth-fix {
+    padding-right: 20px;
+  }
+  
+
+main {
+    flex: 1;
+    overflow: auto;
+  }
+
+.container-logout {
+  height: 100vh;
+  background: url(https://png.pngtree.com/background/20230408/original/pngtree-clear-sky-and-rainbow-clouds-background-picture-image_2335842.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 50px;
+}
+.container-logout-main {
+  margin-top: 10%;
+
+}
+
+
+.h1-inf {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.border-authorization {
+  border-left: #07051a 1px solid;
+}

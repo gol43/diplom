@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+    Профиль {{ user.username }}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div style="margin-bottom: 40px" class="user-profile">
+        <h2> Профиль: {{ user.username }}</h2>
+        
+        <a style="color: black; text-decoration: underline" href="{% url 'users:logout' %}" class="logout-btn">
+        <h3>Выйти из Профиля</h3></a>
+    </div>
+    {% if count_products == 0 %}
+     <h1>Здесь отобразятся ваши товары добавленные в корзину</h1>
+    {% else %}
+        <div style="margin-bottom:30px">
+            <h1>Добавленных товаров: {{count_products }}</h1>
+        </div>
+        <main class="lists">
+            {% for cart in page_obj %}
+            <div class="list">
+                <!-- Карточка товара -->
+                <!-- Верхняя часть -->
+                <div class="list__top">
+                    <!-- Изображение-ссылка товара -->
+                    <a href="{% url 'products:products_detail' cart.product.pk %}" class="list__image">
+                        <img src="{{ cart.product.image.url }}">
+                    </a>
+                </div>
+                <!-- Нижняя часть -->
+                <div class="list__bottom">
+                    <!-- Цены на товар (с учетом скидки и без)-->
+                    <div class="list__prices">
+                        <div class="list__price">Цена: {{cart.product.cost}} руб.</div>
+                    </div>
+                    <!-- Ссылка-название товара -->
+                    <a href="{% url 'products:products_detail' cart.product.pk %}" class="list__title">
+                        {{cart.product.name}}
+                    </a>
+                    <!-- Кнопка удалить из корзины -->
+                    <a href="{% url 'products:remove_from_cart_profile' cart.product.pk %}" class="list__remove">Убрать из корзины</a>
+                </div>
+            </div>
+            {% endfor %}
+        </main>
+    {% endif %}
+    <!-- Pagination -->
+    {% include 'includes/paginator.html' %}
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+{% block content %}
+    <div class='pro'>
+        <div class='pro_image'>
+            <img src="{{ product.image.url }}">
+        </div>
+        <ol class='pro_list'>
+            <li>
+                <div class='pro_name'>
+                    Название: {{ product.name }}
+                </div>
+            </li>
+            <li>
+                <div class='pro_cost'>
+                    Цена: {{ product.cost }} руб.
+                </div>
+            </li>
+            <li>
+                <div class='pro_category'>
+                    <a href="{% url 'products:category_list' 1 %}">
+                        Категория: {{ product.category }}
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class='pro_amount'>
+                    Количество: {{ product.amount }}
+                </div>
+            </li>
+            <li>
+            {% if in_cart %}
+                <a href="{% url 'products:remove_from_cart' product.id %}" class="list__remove">Убрать из корзины</a>
+            {% else %}
+                <a href="{% url 'products:add_to_cart' product.id %}" class="list__add">В корзину</a>
+            {% endif %}
+            </li>
+        </ol>
+    </div>
+    <div class='pro_description'>
+        <div class='opi'>Описание:</div> {{ product.description }}
+    </div>
+
+    <div class='com'><h1 style='font-style:italic'>КОММЕНТАРИИ</h1></div>
+
+    <a href="{% url 'products:comment_form' product.pk %}">
+        <button class="comment_add">Написать комментарий</button>
+    </a>
+    {% for comment in product.comments.all %}
+        <div class='comments'>
+            <div class='author-comment'>
+                {{ forloop.counter }}. 
+                {{ comment.author.username }}
+            </div>
+            <div class='pub_date_comment'>
+                <p>{{ comment.created }}</p>
+            </div>
+            <div class='text-comment'>
+                <p>{{ comment.text }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

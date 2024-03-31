@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Главная
+{% endblock title %}
+{% block content %}
+  <div class='over'>
+    <div class="full-body">
+              <section>
+                <div class="text-info-left"> 
+        <!-- Добро пожаловать в наш Строительный магазин! -->
+                <h3 class="text-info-title"> Добро пожаловать в наш Строительный магазин! </h3>
+
+              Мы предоставляем широкий ассортимент товаров для строительства, ремонта и обустройства вашего дома.
+              В нашем магазине вы найдете высококачественные стройматериалы, инструменты, аксессуары и многое другое.<br><br>
+              Будьте уверены, что в нашем магазине вы найдете все необходимое для успешного строительства и ремонта.
+                </div>
+              </div>
+              </section>
+              <div class="wrapper">
+                <input type="radio" name="point" id="slide1" checked>
+                <input type="radio" name="point" id="slide2">
+                <input type="radio" name="point" id="slide3">
+                <input type="radio" name="point" id="slide4">
+                <input type="radio" name="point" id="slide5">
+                <div class="slider">
+                  <div class="slides slide1"></div>
+                  <div class="slides slide2"></div>
+                  <div class="slides slide3"></div>
+                  <div class="slides slide4"></div>
+                  <div class="slides slide5"></div>
+                </div>	
+                <div class="controls">
+                  <label for="slide1"></label>
+                  <label for="slide2"></label>
+                  <label for="slide3"></label>
+                  <label for="slide4"></label>
+                  <label for="slide5"></label>
+                </div>
+              </div>
+
+              <div class="card-text">Наши товары</div>
+              <section>
+                  <div class="cards">
+                        <!-- Карточка товара 1-->
+                        <div class="card">
+                          <!-- Верхняя часть -->
+                          <div class="card__top">
+                            <!-- Изображение-ссылка товара -->
+                            <a href="#" class="card__image">
+                              <img src="static/img/pin1.png">
+                            </a>
+                            <a href="{% url 'products:category_list' 1 %}" class='card_fon' >
+                              <img src="static/img/1.png" alt="">
+                            </a>
+                          </div>
+                          <!-- Нижняя часть -->
+                          <div class="card__bottom">
+                            <div class="create-line1"></div>
+                            <!-- Цены на товар (с учетом скидки и без)-->
+                            <!-- Ссылка-название товара -->
+                            <a href="#" class="card__title">
+                              Инструменты
+                            </a>
+                            <!-- Кнопка добавить в корзину -->
+                          </div>
+                        </div>
+
+                        <!-- Карточка товара 2-->
+                        <div class="card">
+                          <!-- Верхняя часть -->
+                          <div class="card__top">
+                            <!-- Изображение-ссылка товара -->
+                            <a href="#" class="card__image">
+                              <img
+                                src="static/img/pin2.png"
+                              />
+                              <a href="{% url 'products:category_list' 2 %}" class='card_fon' >
+                                <img src="static/img/2.png" alt="">
+                              </a>
+                            </a>
+                          </div>
+                          <!-- Нижняя часть -->
+                          <div class="card__bottom">
+                            <div class="create-line2"></div>
+                            <!-- Цены на товар (с учетом скидки и без)-->
+                            <!-- Ссылка-название товара -->
+                            <a href="#" class="card__title">
+                              Краска
+                            </a>
+                            <!-- Кнопка добавить в корзину -->
+                          </div>
+                        </div>
+
+                        <!-- Карточка товара 3-->
+                        <div class="card">
+                          <!-- Верхняя часть -->
+                          <div class="card__top">
+                            <!-- Изображение-ссылка товара -->
+                            <a href="#" class="card__image">
+                              <img
+                                src="static/img/pin3.png"
+                              />
+                              <a href="{% url 'products:category_list' 3 %}" class='card_fon' >
+                                <img src="static/img/3.png" alt="">
+                              </a>
+                            </a>
+                          </div>
+                          <!-- Нижняя часть -->
+                          <div class="card__bottom">
+                            <div class="create-line3"></div>
+                            <!-- Цены на товар (с учетом скидки и без)-->
+                            <!-- Ссылка-название товара -->
+                            <a href="#" class="card__title">
+                              Электротовары
+                            </a>
+                            <!-- Кнопка добавить в корзину -->
+                          </div>
+                        </div>
+                      
+                                    <!-- Карточка товара 4-->
+                        <div class="card">
+                          <!-- Верхняя часть -->
+                          <div class="card__top">
+                            <!-- Изображение-ссылка товара -->
+                            <a href="#" class="card__image">
+                              <img
+                                src="static/img/pin4.png"
+                              />
+                              <a href="{% url 'products:category_list' 4 %}" class='card_fon' >
+                                <img src="static/img/4.png" alt="">
+                              </a>
+                            </a>
+                          </div>
+                          <!-- Нижняя часть -->
+                          <div class="card__bottom">
+                            <div class="create-line4"></div>
+                            <!-- Цены на товар (с учетом скидки и без)-->
+                            <!-- Ссылка-название товара -->
+                            <a href="#" class="card__title">
+                              Болты
+                            </a>
+                            <!-- Кнопка добавить в корзину -->
+                          </div>
+                        </div>
+
+                                    <!-- Карточка товара 5-->
+                        <div class="card5">
+                          <div class="card">
+                            <!-- Верхняя часть -->
+                            <div class="card__top">
+                              <!-- Изображение-ссылка товара -->
+                              <a href="#" class="card__image">
+                                <img
+                                  src="static/img/pin5.png"
+                                />
+                                <a href="{% url 'products:category_list' 5 %}" class='card_fon' >
+                                  <img src="static/img/5.png" alt="">
+                                </a>
+                              </a>
+                            </div>
+                            <!-- Нижняя часть -->
+                            <div class="card__bottom">
+                              <div class="create-line5"></div>
+                              <!-- Цены на товар (с учетом скидки и без)-->
+                              <!-- Ссылка-название товара -->
+                              <a href="#" class="card__title">
+                                Всё для сада
+                              </a>
+                              <!-- Кнопка добавить в корзину -->
+                            </div>
+                          </div>
+                      </div>
+                                    <!-- Карточка товара 6-->
+                        <div class="card5">
+                          <div class="card">
+                            <!-- Верхняя часть -->
+                            <div class="card__top">
+                              <!-- Изображение-ссылка товара -->
+                              <a href="#" class="card__image">
+                                <img
+                                  src="static/img/pin6.png"
+                                />
+                                <a href="{% url 'products:category_list' 6 %}" class='card_fon' >
+                                  <img src="static/img/6.png" alt="">
+                                </a>
+                              </a>
+                            </div>
+                            <!-- Нижняя часть -->
+                            <div class="card__bottom">
+                              <div class="create-line6"></div>
+                              <!-- Цены на товар (с учетом скидки и без)-->
+                              <!-- Ссылка-название товара -->
+                              <a href="#" class="card__title">
+                                Обои
+                              </a>
+                              <!-- Кнопка добавить в корзину -->
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                </section>
+          <div style='text-decoration: underline; font-style: italic;' class="text_all"><a href="{% url 'products:products_list' %}">Просмотреть все товары..</a></div>
+
+          </div>
+      </div>    
+    </div>
+  </div>
+{% endblock %}

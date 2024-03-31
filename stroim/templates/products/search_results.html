@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if count_products == 0 %}
+        <div class="card-text">Товары не найдены</div>
+    {% else %}
+        <div class="card-text">Найденные Товары: {{ count_products }}</div>
+        <div class="container">
+            <main class="lists">
+                {% for product in products %}
+                    <div class="list">
+                        <!-- Карточка товара -->
+                        <!-- Верхняя часть -->
+                        <div class="list__top">
+                            <!-- Изображение-ссылка товара -->
+                            <a href="{% url 'products:products_detail' product.pk %}" class="list__image">
+                                <img src="{{ product.image.url }}">
+                            </a>
+                        </div>
+                        <!-- Нижняя часть -->
+                        <div class="list__bottom">
+                            <!-- Цены на товар (с учетом скидки и без)-->
+                            <div class="list__prices">
+                                <div class="list__price">Цена: {{product.cost}} руб.</div>
+                            </div>
+                            <!-- Ссылка-название товара -->
+                            <a href="{% url 'products:products_detail' product.pk %}" class="list__title">
+                                {{product.name}}
+                            </a>
+                            <!-- Кнопка добавить в корзину -->
+                        </div>
+                    </div>
+                {% endfor %}
+            </main>
+    {% endif %}
+        <!-- Pagination -->
+        {% include 'includes/paginator.html' %}
+    </div>
+{% endblock %}

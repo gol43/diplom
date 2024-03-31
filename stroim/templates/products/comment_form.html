@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+Комментарий
+{% endblock title %}
+{% block content %}
+    <div class='add_com'>
+        <form class="decor" method="post" action="{% url 'products:add_comment' product.pk %}">
+            {% csrf_token %}
+            <div class="form-left-decoration"></div>
+            <div class="form-right-decoration"></div>
+            <div class="circle"></div>
+            <div class="form-inner">
+                <h3 class='h3_com'>Добавьте ваш комментарий:</h3>
+                <!-- Добавляем атрибут maxlength с максимальной длиной из модели -->
+                {% if form.errors %}
+                    <div class="error-message">
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                {{ error }}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <textarea class='text_com' name="text" placeholder="Сообщение..." rows="3" maxlength="{{ form.fields.text.max_length }}"></textarea>
+                <input type="submit" value="Отправить" class="add-comment-btn">
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<div class='img-logo'>
+  <a href="{% url 'products:index' %}">
+  <img class="logo-scale" src={% static 'img/logo.png' %} width="90" height="85" alt="Логотип сайт">
+  </a>
+</div>
+<a class='logo' href="{% url 'products:index' %}"><h1>КомфортСтрой</h1></a>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+<form class='poisk' action="/search" method="GET">
+  <input type="search" name="query" placeholder="Поиск по названию товара"> 
+  <i class="fa fa-search"></i>
+</form>
+<nav class="catalog">
+  <ul>
+    <li class="text-catalog"> <a href="#">Каталог</a>
+      <ul>
+        <li><a href="{% url 'products:category_list' 1 %}">Инструменты</a></li>
+        <li><a href="{% url 'products:category_list' 2 %}">Краска</a></li>
+        <li><a href="{% url 'products:category_list' 3 %}">Электротовары</a></li>
+        <li><a href="{% url 'products:category_list' 4 %}">Болты</a></li>
+        <li><a href="{% url 'products:category_list' 5 %}">Всё для сада</a></li>
+        <li><a href="{% url 'products:category_list' 6 %}">Обои</a></li>
+      </ul> 
+    </li>
+  </ul>
+</nav>
+{% if user.is_authenticated %}
+<div class="auth auth-fix"><a href="{% url 'products:profile' user.username %}"> {{ user.username }}</a>
+</div>
+<a href="{% url 'products:profile' user.username %}">
+<img style="margin-right: 40px;" class="img-logo" src="{% static 'img/profile.png' %}" width="60" height="50" alt='Иконка профиля'>
+</a>
+{% else %}
+<div style="border-right: 2px black solid;" class="auth auth-fix" ><a href="{% url 'users:login' %}">Войти</a></div>
+<div class="auth"><a href="{% url 'users:signup' %}">Регистрация</a></div>
+{% endif %}
